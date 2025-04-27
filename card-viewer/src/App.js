@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState } from 'react';
 import './App.css';
+import LandingPage from './components/LandingPage';
+import InfoModal from './components/InfoModal';
 
 function App() {
+  const [showGallery, setShowGallery] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
+
+  const handleEnterGallery = () => {
+    setShowGallery(true);
+  };
+
+  const handleOpenInfo = () => {
+    setShowInfoModal(true);
+  };
+
+  const handleCloseInfo = () => {
+    setShowInfoModal(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!showGallery ? (
+        <LandingPage 
+          onEnterGallery={handleEnterGallery}
+          onOpenInfo={handleOpenInfo}
+        />
+      ) : (
+        <div className="gallery-placeholder">
+          <h2>Gallery View Coming Soon!</h2>
+          <button onClick={() => setShowGallery(false)}>Back to Home</button>
+        </div>
+      )}
+      
+      <InfoModal 
+        isOpen={showInfoModal}
+        onClose={handleCloseInfo}
+      />
     </div>
   );
 }
