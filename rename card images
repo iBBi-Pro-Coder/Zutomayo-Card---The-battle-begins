@@ -1,0 +1,44 @@
+import os
+import shutil
+
+# Directory where your images are located
+directory = '/home/iBBi/Downloads/ImageAssistant_Batch_Image_Downloader/ZUTOMAYO_CARD_-THE_BATTLE_BEGINS_ずっと真夜中でいいのに。/'
+
+# Function to determine if a number is in any of the C ranges
+def is_c_range(num):
+    # Using the original number (1-104) to determine C or E
+    original_num = num - 10000
+    return (1 <= original_num <= 24) or (33 <= original_num <= 52) or (65 <= original_num <= 80)
+
+# Process each file in the directory
+for filename in os.listdir(directory):
+    # Check for both patterns: "100XX.png" and "101XX.png"
+    if filename.endswith('.png') and filename.startswith('10') and filename[:-4].isdigit():
+        try:
+            # Extract the number from the filename
+            original_num = int(filename.split('.')[0])
+            
+            # Only process files in our range (10001-10104)
+            if 10001 <= original_num <= 10104:
+                # Calculate the new number (add 104 to original number)
+                new_num = original_num + 208
+                
+                # Check if the original number (minus 10000) is in C range
+                # This preserves the original C/E categorization
+                base_num = original_num - 10000  # 1-104
+                category = 'C' if is_c_range(original_num) else 'E'
+                
+                # Format new filename: Set2_[C/E]_XXXXX.png
+                new_filename = f"Set2_{category}_{new_num}.png"
+                
+                # Get full paths
+                old_path = os.path.join(directory, filename)
+                new_path = os.path.join(directory, new_filename)
+                
+                # Rename the file
+                shutil.move(old_path, new_path)
+                print(f"Renamed: {filename} → {new_filename}")
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+
+print("Renaming complete!")

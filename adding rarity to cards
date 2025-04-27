@@ -1,0 +1,58 @@
+import os
+import re
+import shutil
+
+# Directory where your images are located
+directory = '/home/iBBi/Zutomayo Card - The battle begins/Card images/'
+
+# Regular expression to match the pattern Set[1/2/3]_[E/C]_XXX.png
+pattern = re.compile(r'^(Set[123])_([EC])_(\d+)(\.png)$')
+
+# Function to determine card rarity based on its number within the set
+def get_rarity(card_number):
+    # Normalize the card number to 1-104 range
+    normalized_num = ((card_number - 1) % 104) + 1
+    
+    if 1 <= normalized_num <= 8:
+        return "UR"
+    elif 9 <= normalized_num <= 32:
+        return "SR"
+    elif 33 <= normalized_num <= 64:
+        return "R"
+    elif 65 <= normalized_num <= 104:
+        return "N"
+    else:
+        return "Unknown"  # Fallback for any unexpected values
+
+# Process each file in the directory
+for filename in os.listdir(directory):
+    # Check if the filename matches our pattern
+    match = pattern.match(filename)
+    if match:
+        try:
+            # Extract the components from the filename
+            set_prefix = match.group(1)  # Set1, Set2, or Set3
+            category = match.group(2)    # E or C
+            number_str = match.group(3)  # The card number as string
+            extension = match.group(4)   # .png
+            
+            # Convert number to integer
+            card_number = int(number_str)
+            
+            # Get the rarity for this card
+            rarity = get_rarity(card_number)
+            
+            # Format new filename: Set[1/2/3]_[E/C]_XXX_[UR/SR/R/N].png
+            new_filename = f"{set_prefix}_{category}_{number_str}_{rarity}{extension}"
+            
+            # Get full paths
+            old_path = os.path.join(directory, filename)
+            new_path = os.path.join(directory, new_filename)
+            
+            # Rename the file
+            shutil.move(old_path, new_path)
+            print(f"Renamed: {filename} → {new_filename}")
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+
+print("Renaming complete!")

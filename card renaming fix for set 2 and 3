@@ -1,0 +1,35 @@
+import os
+import re
+import shutil
+
+# Directory where your images are located
+directory = '/home/iBBi/Zutomayo Card - The battle begins/Card images/'
+
+# Regular expression to match the pattern Set[2 or 3]_[E or C]_10XXX.png
+pattern = re.compile(r'^(Set[23])_([EC])_10(\d+)\.png$')
+
+# Process each file in the directory
+for filename in os.listdir(directory):
+    # Check if the filename matches our target pattern
+    match = pattern.match(filename)
+    if match:
+        try:
+            # Extract the components from the filename
+            set_prefix = match.group(1)  # Set2 or Set3
+            category = match.group(2)    # E or C
+            number = match.group(3)      # The remaining digits after 10
+            
+            # Format new filename: Set2/3_E/C_XXX.png (removing the 10 prefix)
+            new_filename = f"{set_prefix}_{category}_{number}.png"
+            
+            # Get full paths
+            old_path = os.path.join(directory, filename)
+            new_path = os.path.join(directory, new_filename)
+            
+            # Rename the file
+            shutil.move(old_path, new_path)
+            print(f"Renamed: {filename} → {new_filename}")
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+
+print("Renaming complete!")

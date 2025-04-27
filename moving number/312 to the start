@@ -1,0 +1,41 @@
+import os
+import re
+import shutil
+
+# Directory where your images are located
+directory = '/home/iBBi/Zutomayo Card - The battle begins/Card images/'
+
+# Regular expression to match the current pattern Set[1/2/3]_[E/C]_XXX_[UR/SR/R/N].png
+pattern = re.compile(r'^(Set[123])_([EC])_(\d+)_([URSRN]+)(\.png)$')
+
+# Process each file in the directory
+for filename in os.listdir(directory):
+    # Check if the filename matches our pattern
+    match = pattern.match(filename)
+    if match:
+        try:
+            # Extract the components from the filename
+            set_prefix = match.group(1)  # Set1, Set2, or Set3
+            category = match.group(2)    # E or C
+            number_str = match.group(3)  # The card number as string
+            rarity = match.group(4)      # UR, SR, R, or N
+            extension = match.group(5)   # .png
+            
+            # Ensure the number has leading zeros for proper sorting (3 digits)
+            # This ensures 001 comes before 010
+            padded_number = number_str.zfill(3)
+            
+            # Format new filename: XXX_Set[1/2/3]_[E/C]_[UR/SR/R/N].png
+            new_filename = f"{padded_number}_{set_prefix}_{category}_{rarity}{extension}"
+            
+            # Get full paths
+            old_path = os.path.join(directory, filename)
+            new_path = os.path.join(directory, new_filename)
+            
+            # Rename the file
+            shutil.move(old_path, new_path)
+            print(f"Renamed: {filename} → {new_filename}")
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+
+print("Renaming complete!")
