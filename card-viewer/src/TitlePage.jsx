@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './TitlePage.css';
 
 // Assuming you have these image files in your assets folder
-import logoImage from '/decoration images/The_battle_beings_title_screen_image.png';
-import smallLogo from '/decoration images/Zutomayo_logo_in_font.svg';
+import logoImage from './Assets/The_battle_beings_title_screen_image.png';
+import smallLogo from './Assets/Zutomayo_logo_in_font.svg';
 
 const TitlePage = () => {
   const navigate = useNavigate();
