@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import './TitlePage.css';
 
-// Assuming you have these image files in your assets folder
+// Update these imports to match your file paths - use relative paths with the correct case
 import logoImage from './Assets/The_battle_beings_title_screen_image.png';
 import smallLogo from './Assets/Zutomayo_logo_in_font.svg';
 
 const TitlePage = () => {
-  const navigate = useNavigate();
   const [buttonHover, setButtonHover] = useState(false);
   
   const handleEnter = () => {
-    // Navigate to your main game page or menu
-    navigate('/menu');
+    // Use window.location instead of React Router for now
+    console.log("Enter button clicked");
+    // You can uncomment this when you're ready to navigate
+    // window.location.href = './menu.html';
   };
 
   return (
@@ -26,10 +26,8 @@ const TitlePage = () => {
       
       <div className="enter-button-container">
         <button 
-          className={`enter-button ${buttonHover ? 'hover' : ''}`}
+          className="enter-button"
           onClick={handleEnter}
-          onMouseEnter={() => setButtonHover(true)}
-          onMouseLeave={() => setButtonHover(false)}
         >
           ENTER
         </button>
