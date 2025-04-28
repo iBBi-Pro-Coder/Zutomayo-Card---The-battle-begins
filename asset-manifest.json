@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/Zutomayo-Card---The-battle-begins./static/css/main.6ee462c6.css",
-    "main.js": "/Zutomayo-Card---The-battle-begins./static/js/main.2874b5ed.js",
+    "main.css": "/Zutomayo-Card---The-battle-begins./static/css/main.e340ce29.css",
+    "main.js": "/Zutomayo-Card---The-battle-begins./static/js/main.0263413f.js",
     "static/js/453.fd3c6b74.chunk.js": "/Zutomayo-Card---The-battle-begins./static/js/453.fd3c6b74.chunk.js",
+    "static/media/The_battle_beings_title_screen_image.png": "/Zutomayo-Card---The-battle-begins./static/media/The_battle_beings_title_screen_image.0077b1af0e3b4a4cd5ad.png",
+    "static/media/Zutomayo_logo_in_font.svg": "/Zutomayo-Card---The-battle-begins./static/media/Zutomayo_logo_in_font.8455a1ddb576546ff287fff737f0755a.svg",
     "index.html": "/Zutomayo-Card---The-battle-begins./index.html",
-    "main.6ee462c6.css.map": "/Zutomayo-Card---The-battle-begins./static/css/main.6ee462c6.css.map",
-    "main.2874b5ed.js.map": "/Zutomayo-Card---The-battle-begins./static/js/main.2874b5ed.js.map",
+    "main.e340ce29.css.map": "/Zutomayo-Card---The-battle-begins./static/css/main.e340ce29.css.map",
+    "main.0263413f.js.map": "/Zutomayo-Card---The-battle-begins./static/js/main.0263413f.js.map",
     "453.fd3c6b74.chunk.js.map": "/Zutomayo-Card---The-battle-begins./static/js/453.fd3c6b74.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ee462c6.css",
-    "static/js/main.2874b5ed.js"
+    "static/css/main.e340ce29.css",
+    "static/js/main.0263413f.js"
   ]
 }
