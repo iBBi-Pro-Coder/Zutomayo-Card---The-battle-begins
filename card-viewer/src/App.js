@@ -1,44 +1,18 @@
-// src/App.js
-import React, { useState } from 'react';
-import './App.css';
-import LandingPage from './components/LandingPage';
-import InfoModal from './components/InfoModal';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TitlePage from './TitlePage';
+import GameMenu from './GameMenu';  // Your existing game menu component
+// Import other components
 
 function App() {
-  const [showGallery, setShowGallery] = useState(false);
-  const [showInfoModal, setShowInfoModal] = useState(false);
-
-  const handleEnterGallery = () => {
-    setShowGallery(true);
-  };
-
-  const handleOpenInfo = () => {
-    setShowInfoModal(true);
-  };
-
-  const handleCloseInfo = () => {
-    setShowInfoModal(false);
-  };
-
   return (
-    <div className="App">
-      {!showGallery ? (
-        <LandingPage 
-          onEnterGallery={handleEnterGallery}
-          onOpenInfo={handleOpenInfo}
-        />
-      ) : (
-        <div className="gallery-placeholder">
-          <h2>Gallery View Coming Soon!</h2>
-          <button onClick={() => setShowGallery(false)}>Back to Home</button>
-        </div>
-      )}
-      
-      <InfoModal 
-        isOpen={showInfoModal}
-        onClose={handleCloseInfo}
-      />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TitlePage />} />
+        <Route path="/menu" element={<GameMenu />} />
+        {/* Other routes */}
+      </Routes>
+    </Router>
   );
 }
 
