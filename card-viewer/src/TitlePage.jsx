@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TitlePage.css';
 
-// Update these imports to match your file paths - use relative paths with the correct case
+// Import your assets with the correct paths
 import logoImage from './Assets/The_battle_beings_title_screen_image.png';
 import smallLogo from './Assets/Zutomayo_logo_in_font.svg';
 
 const TitlePage = () => {
-  const [buttonHover, setButtonHover] = useState(false);
+  // Remove the useState declaration if you're not using it
   
   const handleEnter = () => {
-    // Use window.location instead of React Router for now
     console.log("Enter button clicked");
-    // You can uncomment this when you're ready to navigate
-    // window.location.href = './menu.html';
+    // Add your game start logic here
   };
 
   return (
