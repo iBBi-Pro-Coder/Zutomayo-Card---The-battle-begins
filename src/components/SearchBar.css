@@ -1,0 +1,122 @@
+/* SearchBar.css */
+.search-bar {
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.search-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-input-container {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(73, 160, 157, 0.3);
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.filter-select {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.filter-select:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.filter-select option {
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  padding: 8px;
+}
+
+.sort-select {
+  grid-column: -1;
+  background: linear-gradient(90deg, rgba(95, 44, 130, 0.3), rgba(73, 160, 157, 0.3));
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sort-select:hover {
+  background: linear-gradient(90deg, rgba(95, 44, 130, 0.4), rgba(73, 160, 157, 0.4));
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-bar {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .search-controls {
+    gap: 12px;
+  }
+  
+  .filter-controls {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .sort-select {
+    grid-column: span 2;
+  }
+  
+  .search-input, .filter-select {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .sort-select {
+    grid-column: span 1;
+  }
+}
