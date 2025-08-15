@@ -1,4 +1,4 @@
-// src/components/LandingPage.js
+// src/components/LandingPage.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/LandingPage.css';

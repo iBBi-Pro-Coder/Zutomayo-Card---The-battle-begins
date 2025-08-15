@@ -1,4 +1,4 @@
-// src/components/InfoModal.js
+// src/components/InfoModal.jsx
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/InfoModal.css';

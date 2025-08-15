@@ -42,3 +42,44 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 7px 20px rgba(79, 44, 130, 0.7);
 }
+
+/* Error Boundary Styles */
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-boundary h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #e74c3c;
+}
+
+.error-boundary p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.error-boundary button {
+  background: linear-gradient(90deg, #5f2c82 0%, #49a09d 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.error-boundary button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(95, 44, 130, 0.5);
+}
