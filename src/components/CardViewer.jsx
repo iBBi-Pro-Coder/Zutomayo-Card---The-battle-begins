@@ -1,12 +1,10 @@
-import React from 'react';
+import { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getRarityColor, getRarityName } from '../utilities/cardData';
 import './CardViewer.css';
 
 const CardViewer = ({ card, isOpen, onClose, onPrevious, onNext, hasPrevious, hasNext }) => {
-  if (!card) return null;
-
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     switch (e.key) {
       case 'Escape':
         onClose();
@@ -20,14 +18,16 @@ const CardViewer = ({ card, isOpen, onClose, onPrevious, onNext, hasPrevious, ha
       default:
         break;
     }
-  };
+  }, [onClose, onPrevious, onNext, hasPrevious, hasNext]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
     }
-  }, [isOpen, hasPrevious, hasNext]);
+  }, [isOpen, handleKeyDown]);
+
+  if (!card) return null;
 
   return (
     <AnimatePresence>
