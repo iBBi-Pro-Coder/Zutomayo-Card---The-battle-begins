@@ -1,7 +1,7 @@
 // src/components/CardGrid.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { generatePlaceholderCards, filterCards, sortCards } from '../utils/cardData.js';
+import { generateCardData, filterCards, sortCards } from '../utils/cardData.js';
 import '../styles/CardGrid.css';
 
 const CardGrid = ({ onCardClick, onBackToMenu, onCardsLoad }) => {
@@ -22,11 +22,11 @@ const CardGrid = ({ onCardClick, onBackToMenu, onCardsLoad }) => {
       try {
         // Simulate loading delay
         await new Promise(resolve => setTimeout(resolve, 500));
-        const placeholderCards = generatePlaceholderCards();
-        setCards(placeholderCards);
-        setFilteredCards(placeholderCards);
+        const cardData = generateCardData();
+        setCards(cardData);
+        setFilteredCards(cardData);
         if (onCardsLoad) {
-          onCardsLoad(placeholderCards);
+          onCardsLoad(cardData);
         }
       } catch (error) {
         console.error('Error loading cards:', error);
