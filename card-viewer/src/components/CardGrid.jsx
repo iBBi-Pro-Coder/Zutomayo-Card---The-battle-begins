@@ -167,7 +167,7 @@ const CardGrid = ({ onCardClick, onBackToMenu, onCardsLoad }) => {
                 alt={card.title}
                 className="card-image"
                 onError={(e) => {
-                  e.target.src = '/placeholder-card.jpg'; // Fallback image
+                  e.target.src = '/placeholder-card.svg'; // Fallback image
                 }}
               />
               <div className="card-overlay">
