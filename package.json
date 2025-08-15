@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://iBBi-Pro-Coder.github.io/Zutomayo-Card---The-battle-begins/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
