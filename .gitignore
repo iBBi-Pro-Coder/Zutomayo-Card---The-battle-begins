@@ -7,7 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
 *.local
@@ -31,3 +34,7 @@ Thumbs.db
 .tmp/
 temp/
 tmp/
+
+# Keep important project assets
+!Card\ images/
+!Python\ naming\ scripts/

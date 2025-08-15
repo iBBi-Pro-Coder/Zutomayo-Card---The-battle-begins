@@ -22,7 +22,7 @@ export const parseCardFilename = (filename) => {
     type: type === 'C' ? 'Character' : 'Event',
     rarity: rarity,
     name: `${type === 'C' ? 'Character' : 'Event'} Card ${number}`,
-    imagePath: `/Card images/${filename}`
+    imagePath: `/Zutomayo-Card---The-battle-begins/Card images/${filename}`
   };
 };
 
