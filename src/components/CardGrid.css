@@ -13,14 +13,31 @@
   padding: 0 10px;
 }
 
-.page-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-logo {
+  height: 80px;
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding: 30px;
+}
+
+.footer-logo-image {
+  height: 60px;
+  width: auto;
+  opacity: 0.7;
 }
 
 .back-button {
@@ -40,107 +57,46 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 15px;
   padding: 0 10px;
 }
 
 .card-item {
-  background: linear-gradient(145deg, rgba(26, 26, 46, 0.8), rgba(36, 36, 68, 0.8));
-  border-radius: 15px;
-  padding: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.7s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 .card-item:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 30px rgba(95, 44, 130, 0.3);
+  transform: scale(1.05);
 }
 
-.card-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card-item:hover::before {
-  opacity: 1;
-}
+/* Removed card item before pseudo-element as it's no longer needed */
 
 .card-image-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  min-height: 300px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
 .card-image {
-  max-width: 100%;
-  max-height: 280px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: transform 0.7s ease;
   object-fit: cover;
 }
 
-.card-item:hover .card-image {
-  transform: scale(1.05);
-}
+/* Remove the hover effect on card image as it's now handled by the card item */
 
-.rarity-indicator {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
-}
+/* Removed rarity indicator styles as it's no longer used */
 
-.card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: center;
-}
-
-.card-number {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--text-primary);
-}
-
-.card-type {
-  font-size: 1rem;
-  color: var(--accent-light);
-  font-weight: 500;
-}
-
-.card-set {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  opacity: 0.8;
-}
+/* Removed card info styles as they're no longer used */
 
 .no-results {
   text-align: center;
@@ -188,25 +144,17 @@
     text-align: center;
   }
   
-  .page-title {
-    font-size: 2rem;
+  .page-logo {
+    height: 60px;
+  }
+  
+  .footer-logo-image {
+    height: 45px;
   }
   
   .card-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .card-item {
-    padding: 15px;
-  }
-  
-  .card-image-container {
-    min-height: 250px;
-  }
-  
-  .card-image {
-    max-height: 230px;
+    gap: 15px;
   }
 }
 
@@ -217,27 +165,11 @@
     padding: 0;
   }
   
-  .card-item {
-    padding: 12px;
+  .page-logo {
+    height: 50px;
   }
   
-  .card-image-container {
-    min-height: 200px;
-  }
-  
-  .card-image {
-    max-height: 180px;
-  }
-  
-  .page-title {
-    font-size: 1.8rem;
-  }
-  
-  .card-number {
-    font-size: 1.2rem;
-  }
-  
-  .card-type, .card-set {
-    font-size: 0.9rem;
+  .footer-logo-image {
+    height: 40px;
   }
 }
