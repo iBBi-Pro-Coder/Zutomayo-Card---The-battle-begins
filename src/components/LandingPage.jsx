@@ -23,14 +23,18 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="content-container">
-        <motion.h1 
-          className="title"
+        <motion.div
+          className="logo-container"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Zutomayo Card Collection
-        </motion.h1>
+          <img
+            src="/holographic-logo.svg"
+            alt="Zutomayo Card Collection"
+            className="main-logo"
+          />
+        </motion.div>
         
         <motion.div 
           className="subtitle"

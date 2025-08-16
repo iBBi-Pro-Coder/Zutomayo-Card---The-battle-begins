@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SearchBar from './SearchBar';
 import CardViewer from './CardViewer';
-import { generateCardData, filterCards, sortCards, getRarityColor } from '../utilities/cardData';
+import { generateCardData, filterCards, sortCards } from '../utilities/cardData';
 import './CardGrid.css';
 
 const CardGrid = () => {
@@ -84,14 +84,18 @@ const CardGrid = () => {
   return (
     <div className="card-grid-container">
       <div className="header">
-        <motion.h1 
-          className="page-title"
+        <motion.div
+          className="logo-container"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Zutomayo Card Collection
-        </motion.h1>
+          <img
+            src="/holographic-logo.svg"
+            alt="Zutomayo Card Collection"
+            className="page-logo"
+          />
+        </motion.div>
         
         <motion.button
           className="back-button btn"
@@ -163,17 +167,6 @@ const CardGrid = () => {
                   e.target.alt = 'Card image not available';
                 }}
               />
-              <div 
-                className="rarity-indicator"
-                style={{ backgroundColor: getRarityColor(card.rarity) }}
-              >
-                {card.rarity}
-              </div>
-            </div>
-            <div className="card-info">
-              <div className="card-number">#{card.number}</div>
-              <div className="card-type">{card.type}</div>
-              <div className="card-set">{card.set}</div>
             </div>
           </motion.div>
         ))}
@@ -190,6 +183,19 @@ const CardGrid = () => {
           <p>Try adjusting your search filters to find more cards.</p>
         </motion.div>
       )}
+
+      <motion.div
+        className="footer-logo"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1 }}
+      >
+        <img
+          src="/monochrome-logo.svg"
+          alt="Zutomayo Card Collection"
+          className="footer-logo-image"
+        />
+      </motion.div>
 
       <CardViewer
         card={selectedCard}
